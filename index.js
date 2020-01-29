@@ -6,7 +6,7 @@ class Timer {
         
         this.startButton.addEventListener('click', this.start);
         this.pauseButton.addEventListener('click', this.pause);
-    }
+    };
     
     start = () => {
         this.tick();
@@ -15,10 +15,18 @@ class Timer {
     
     pause = () => {
         clearInterval(this.intervalId);
-    }
+    };
     
     tick = () => {
-        console.log('tick');
+        this.timeRemaining = this.timeRemaining - 1;
+    };
+    
+    get timeRemaining() {
+        return parseFloat(this.durationInput.value);
+    };
+    
+    set timeRemaining(time) {
+        this.durationInput.value = time;
     };
 }
 
